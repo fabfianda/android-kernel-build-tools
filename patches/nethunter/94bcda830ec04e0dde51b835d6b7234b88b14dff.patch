@@ -1,0 +1,22 @@
+From 94bcda830ec04e0dde51b835d6b7234b88b14dff Mon Sep 17 00:00:00 2001
+From: F4B <no@contact.com>
+Date: Sat, 1 Oct 2022 08:34:42 +0200
+Subject: [PATCH] patch (nethunter): fix-rt2800-injection-4.04.patch
+
+---
+ drivers/net/wireless/rt2x00/rt2800lib.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/wireless/rt2x00/rt2800lib.c b/drivers/net/wireless/rt2x00/rt2800lib.c
+index 69c1c09687a3..3e6aaca9f107 100644
+--- a/drivers/net/wireless/rt2x00/rt2800lib.c
++++ b/drivers/net/wireless/rt2x00/rt2800lib.c
+@@ -1490,7 +1490,7 @@ void rt2800_config_filter(struct rt2x00_dev *rt2x00dev,
+ 			   !(filter_flags & FIF_FCSFAIL));
+ 	rt2x00_set_field32(&reg, RX_FILTER_CFG_DROP_PHY_ERROR,
+ 			   !(filter_flags & FIF_PLCPFAIL));
+-	rt2x00_set_field32(&reg, RX_FILTER_CFG_DROP_NOT_TO_ME, 1);
++	rt2x00_set_field32(&reg, RX_FILTER_CFG_DROP_NOT_TO_ME, 0);
+ 	rt2x00_set_field32(&reg, RX_FILTER_CFG_DROP_NOT_MY_BSSD, 0);
+ 	rt2x00_set_field32(&reg, RX_FILTER_CFG_DROP_VER_ERROR, 1);
+ 	rt2x00_set_field32(&reg, RX_FILTER_CFG_DROP_MULTICAST,

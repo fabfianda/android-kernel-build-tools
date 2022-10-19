@@ -1,0 +1,22 @@
+From 9b9dd0baab99ca589454b31d725e517ff5b1a4a2 Mon Sep 17 00:00:00 2001
+From: F4B <no@contact.com>
+Date: Sat, 1 Oct 2022 10:39:29 +0200
+Subject: [PATCH] fix: export undeclared symbols
+
+---
+ drivers/crypto/fmp/fmp_ufs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/crypto/fmp/fmp_ufs.c b/drivers/crypto/fmp/fmp_ufs.c
+index 0f40bb771c95..460163a4aa49 100644
+--- a/drivers/crypto/fmp/fmp_ufs.c
++++ b/drivers/crypto/fmp/fmp_ufs.c
+@@ -354,7 +354,7 @@ int fmp_ufs_map_sg(struct ufshcd_sg_entry *prd_table, struct scatterlist *sg,
+ 
+ 	return 0;
+ }
+-EXPORT_SYMBOL_GPL(fmp_map_sg);
++EXPORT_SYMBOL_GPL(fmp_ufs_map_sg);
+ 
+ #if defined(CONFIG_FIPS_FMP)
+ #if defined(CONFIG_UFS_FMP_ECRYPT_FS) || defined(CONFIG_UFS_FMP_EXT4CRYPT_FS)
